@@ -1,0 +1,135 @@
+{
+  "is_synthetic": true,
+  "description": "Контрольный пример; не реальные данные",
+  "as_of": "2026-09-30T00:00:00Z",
+  "margin_rate": 0.6,
+  "placements": [
+    {
+      "placement_id": "p01",
+      "campaign_id": "demo",
+      "channel_id": "ch01",
+      "publication_time": "2026-09-01T08:00:00Z",
+      "cost": 1000,
+      "currency": "RUB"
+    },
+    {
+      "placement_id": "p02",
+      "campaign_id": "demo",
+      "channel_id": "ch02",
+      "publication_time": "2026-09-02T08:00:00Z",
+      "cost": 2000,
+      "currency": "RUB"
+    }
+  ],
+  "placement_creatives": [
+    {
+      "placement_id": "p01",
+      "creative_id": "cr01",
+      "tracking_token": "demo-p01-cr01"
+    },
+    {
+      "placement_id": "p02",
+      "creative_id": "cr02",
+      "tracking_token": "demo-p02-cr02"
+    }
+  ],
+  "touches": [
+    {
+      "touch_id": "t01",
+      "visitor_id": "v01",
+      "placement_id": "p01",
+      "creative_id": "cr01",
+      "touch_time": "2026-09-01T09:00:00Z"
+    },
+    {
+      "touch_id": "t02",
+      "visitor_id": "v02",
+      "placement_id": "p01",
+      "creative_id": "cr01",
+      "touch_time": "2026-09-01T10:00:00Z"
+    },
+    {
+      "touch_id": "t03",
+      "visitor_id": "v01",
+      "placement_id": "p02",
+      "creative_id": "cr02",
+      "touch_time": "2026-09-02T09:00:00Z"
+    }
+  ],
+  "leads": [
+    {
+      "lead_id": "l01",
+      "visitor_id": "v01",
+      "student_id": "u01",
+      "lead_time": "2026-09-01T09:10:00Z"
+    },
+    {
+      "lead_id": "l02",
+      "visitor_id": "v02",
+      "student_id": "u02",
+      "lead_time": "2026-09-01T10:10:00Z"
+    },
+    {
+      "lead_id": "l03",
+      "visitor_id": "v03",
+      "student_id": "u03",
+      "lead_time": "2026-09-01T11:00:00Z"
+    }
+  ],
+  "purchases": [
+    {
+      "purchase_id": "o01",
+      "student_id": "u01",
+      "purchase_time": "2026-09-03T09:00:00Z",
+      "amount": 4000,
+      "refunded_amount": 1000,
+      "status": "paid"
+    },
+    {
+      "purchase_id": "o02",
+      "student_id": "u02",
+      "purchase_time": "2026-09-03T10:00:00Z",
+      "amount": 5000,
+      "refunded_amount": 0,
+      "status": "paid"
+    },
+    {
+      "purchase_id": "o03",
+      "student_id": "u03",
+      "purchase_time": "2026-09-03T11:00:00Z",
+      "amount": 700,
+      "refunded_amount": 0,
+      "status": "paid"
+    }
+  ],
+  "expected": {
+    "p01": {
+      "visitors": 2,
+      "leads": 2,
+      "buyers": 1,
+      "purchases": 1,
+      "net_revenue": 5000,
+      "cpl": 500,
+      "cost_per_buyer": 1000,
+      "conversion_pct": 50,
+      "roas": 5,
+      "romi_pct": 200
+    },
+    "p02": {
+      "visitors": 1,
+      "leads": 0,
+      "buyers": 1,
+      "purchases": 1,
+      "net_revenue": 3000,
+      "cpl": null,
+      "cost_per_buyer": 2000,
+      "conversion_pct": 100,
+      "roas": 1.5,
+      "romi_pct": -10
+    },
+    "unattributed": {
+      "purchases": 1,
+      "net_revenue": 700
+    }
+  }
+}
